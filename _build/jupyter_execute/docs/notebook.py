@@ -3,6 +3,8 @@
 
 # # Example Notebook
 # 
+# (Last updated: May 22, 2023)
+# 
 # You can also create content with Jupyter Notebooks.
 # This means that you can include code blocks and their outputs in your book.
 # In this notebook, we show some examples of loading and plotting data.

@@ -4,7 +4,11 @@
 
 In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
 This page is written in markdown, which also serves as an example.
-Check [the Jupyter Book documentation](https://jupyterbook.org/en/stable/content/index.html) for more information about how to write narrative content.
+
+:::{note}
+This tutorial only mentions the basics.
+For more advanced usage of Jupyter Book, such as this special content block, check [the Jupyter Book documentation](https://jupyterbook.org/en/stable/content/index.html) for more information.
+:::
 
 ## Table of contents
 - [Prerequisites](#pre)
@@ -23,10 +27,10 @@ We assume that you have installed the environment that can edit and run Jupyter 
 If you have not done so, check the [Jupyter website](https://jupyter.org) for how to install the user interface and environment.
 
 You need a terminal (e.g., [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) or [Zsh](https://en.wikipedia.org/wiki/Z_shell)) to work with Jupyter Book.
-If you are on Windows, install [`git`](https://git-scm.com/), which should come with a terminal.
+If you are on Windows, install [the git tool](https://git-scm.com/), which should come with a terminal.
 If you are on Mac or Linux, the git tool is already installed, so you can just open the terminal and start typing commands.
 
-We expect that you have some basic understanding about using `git` for version control.
+We expect that you have some basic understanding of using `git` for version control.
 If you are new to this idea, check [the git guide](https://github.com/git-guides).
 
 ## Step 1: Install conda
@@ -94,7 +98,7 @@ The cloned tutorial repository has the template files that you need to build you
 We are only using the template for reference.
 
 To have your repository that can host your website and code, [create a new repository](https://github.com/new) and work from there.
-Make sure that your repository is public and do not add a README file.
+Make sure that your repository is public, and do not add a README file.
 You also do not need to add the `.gitignore` file and `license`.
 
 Then, clone your newly created (and currently empty) repository to your local machine.
@@ -107,8 +111,11 @@ Again, remember to use the correct repository name (i.e., replacing `[my-reposit
 ```sh
 cp -r jupyter-book-template/* [my-repository-name]/
 ```
+
+:::{warning}
 Notice that you need to use a terminal to copy all the files (but not drag/drop or copy/paste files with the user interface).
 Otherwise, you will fail to copy the hidden files, such as the `.gitignore` file.
+:::
 
 ## Step 4: Build the book locally
 <a name="s4"></a>
@@ -137,9 +144,12 @@ After building the book, all the html files in the "_build/html/" directory will
 You can then use your browser to open the files locally on your machine to view the compiled notebooks and markdown files.
 You can also install a [local Apache HTTP Server](https://httpd.apache.org/) to view the files since the html files are sometimes incorrectly displayed if opened using a browser.
 
-This section only explains basics.
+:::{important}
+Notice that every time you add new files or update existing files, you need to re-build the book using the commands provided above.
+:::
+
 We also already set up the configuration file (`_config.yml`) and table of content file (`_toc.yml`) for you.
-For more information, check [this documentation](https://jupyterbook.org/en/stable/start/your-first-book.html).
+For more information about how to edit them, check [this documentation](https://jupyterbook.org/en/stable/start/create.html).
 
 ## Step 5: Deploy the book online
 <a name="s5"></a>
@@ -165,3 +175,17 @@ Then, run the following command to push your html files to the `gh-pages` branch
 ```sh
 ghp-import -n -p -f _build/html
 ```
+
+:::{important}
+Remember that every time you build some new files (or updated files), you need to run the above commands again to update your website code in the remote GitHub repository.
+:::
+
+After this, go to the URL that points to your GitHub repository, click "Settings" -> "Pages" to go to the page settings.
+You should see a message similar to "Your site is live at [XXX]", where "[XXX]" is your website URL that is publicly accessible.
+
+Also, sometimes it will take a while for GitHub to update your webpage content.
+You can check the "Action" page to check the status.
+For example, here is the [action page for our tutorial repository](https://github.com/yenchiah/jupyter-book-template/actions).
+
+You can now publish this URL online, such as on your personal website.
+More information about how to publish your book can be found on [this documentation](https://jupyterbook.org/en/stable/start/publish.html).
