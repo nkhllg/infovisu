@@ -40,8 +40,16 @@ df
 
 
 # Plot the Iris dataset using Plotly
-fig_interactive = px.scatter(df, x="sepal_width", y="sepal_length", color="species", size="sepal_length", height=600)
-fig_interactive
+g1 = px.scatter_3d(df,
+                   x="sepal_width",
+                   y="sepal_length",
+                   z="petal_width",
+                   color="species",
+                   size="petal_length",
+                   opacity=0.6,
+                   size_max=30,
+                   height=700)
+g1
 
 
 # You can also plot the data using static visualizations, such as the [seaborn](https://seaborn.pydata.org/#) library.
@@ -50,8 +58,9 @@ fig_interactive
 
 
 # Plot the Iris dataset using seaborn
-fig_static = sns.pairplot(df.drop("species_id", axis=1), hue='species')
-fig_static
+g2 = sns.pairplot(df.drop("species_id", axis=1),
+                  hue='species')
+g2
 
 
 # In[ ]:
