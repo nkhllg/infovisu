@@ -497,10 +497,14 @@ Again, remember to use the correct repository name (i.e., replacing <code class=
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cp -r jupyter-book-template/* <span class="o">[</span>my-repository-name<span class="o">]</span>/
 </pre></div>
 </div>
+<p>Finally, delete the old <code class="docutils literal notranslate"><span class="pre">git</span></code> history from the template that you just copied since we do not need them.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm -rf .git
+</pre></div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Notice that you need to use a terminal to copy all the files (but not drag/drop or copy/paste files with the user interface).
-Otherwise, you will fail to copy the hidden files, such as the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file.</p>
+Otherwise, you will fail to copy the hidden files, such as the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> or <code class="docutils literal notranslate"><span class="pre">.gitmodules</span></code> files.</p>
 </div>
 </section>
 <section id="step-4-build-the-book-locally">

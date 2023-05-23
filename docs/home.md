@@ -111,10 +111,14 @@ Again, remember to use the correct repository name (i.e., replacing `[my-reposit
 ```sh
 cp -r jupyter-book-template/* [my-repository-name]/
 ```
+Finally, delete the old `git` history from the template that you just copied since we do not need them.
+```sh
+rm -rf .git
+```
 
 :::{warning}
 Notice that you need to use a terminal to copy all the files (but not drag/drop or copy/paste files with the user interface).
-Otherwise, you will fail to copy the hidden files, such as the `.gitignore` file.
+Otherwise, you will fail to copy the hidden files, such as the `.gitignore` or `.gitmodules` files.
 :::
 
 ## Step 4: Build the book locally
