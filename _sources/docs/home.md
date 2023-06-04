@@ -1,13 +1,13 @@
 # Jupyter Book Tutorial
 
-(Last updated: May 22, 2023)
+(Last updated: June 4, 2023)
 
 In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
 This page is written in markdown, which also serves as an example.
 
 :::{note}
 This tutorial only mentions the basics.
-For more advanced usage of Jupyter Book, such as this special content block, check [the Jupyter Book documentation](https://jupyterbook.org/en/stable/content/index.html) for more information.
+For more advanced usage of Jupyter Book (e.g., using this special content block, editing the configuration file `_config.yml`, editing the table of content file `_toc.yml`, etc.), check [the Jupyter Book documentation](https://jupyterbook.org/en/stable/content/index.html) for more information.
 :::
 
 ## Table of contents
@@ -17,11 +17,15 @@ For more advanced usage of Jupyter Book, such as this special content block, che
 - [Step 3: Create a new repository](#s2)
 - [Step 4: Build the book locally](#s4)
 - [Step 5: Deploy the book online](#s5)
+- [Troubleshooting](#ts)
 
 ## Prerequisites
 <a name="pre"></a>
 
 We will use [GitHub Pages](https://pages.github.com) to deploy your compiled book, which means that you need to [register a GitHub account](https://github.com/signup).
+
+GitHub has a new policy that you can no longer use your account password to push file changes.
+You must [create a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) and use the token when pushing changes to a GitHub repository. Please make sure that you have the personal access token ready.
 
 We assume that you have installed the environment that can edit and run Jupyter Notebook files.
 If you have not done so, check the [Jupyter website](https://jupyter.org) for how to install the user interface and environment.
@@ -30,8 +34,9 @@ You need a terminal (e.g., [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell
 If you are on Windows, install [the git tool](https://git-scm.com/), which should come with a terminal.
 If you are on Mac or Linux, the git tool is already installed, so you can just open the terminal and start typing commands.
 
-We expect that you have some basic understanding of using `git` for version control.
+You will need to use `git` to work with the GitHub Pages, which requires some basic understanding of using `git`.
 If you are new to this idea, check [the git guide](https://github.com/git-guides).
+Also, here is [a 15-minute Git tutorial video](https://www.youtube.com/watch?v=USjZcfj8yxE) that covers what you need for this course.
 
 ## Step 1: Install conda
 <a name="s1"></a>
@@ -193,3 +198,9 @@ For example, here is the [action page for our tutorial repository](https://githu
 
 You can now publish this URL online, such as on your personal website.
 More information about how to publish your book can be found on [this documentation](https://jupyterbook.org/en/stable/start/publish.html).
+
+## Troubleshooting
+<a name="ts"></a>
+
+Q1: I get errors when running the `jupyter-book build` command. What should I do?
+- It is possible that your packages in the conda environment are too old. Try upgrading your conda environment and also the Python packages in the environment.

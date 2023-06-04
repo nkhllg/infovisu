@@ -326,6 +326,11 @@ title="Print to PDF"
    Step 5: Deploy the book online
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -380,6 +385,11 @@ title="Print to PDF"
    Step 5: Deploy the book online
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -392,13 +402,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book-tutorial">
 <h1>Jupyter Book Tutorial<a class="headerlink" href="#jupyter-book-tutorial" title="Permalink to this headline">#</a></h1>
-<p>(Last updated: May 22, 2023)</p>
+<p>(Last updated: June 4, 2023)</p>
 <p>In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
 This page is written in markdown, which also serves as an example.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This tutorial only mentions the basics.
-For more advanced usage of Jupyter Book, such as this special content block, check <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">the Jupyter Book documentation</a> for more information.</p>
+For more advanced usage of Jupyter Book (e.g., using this special content block, editing the configuration file <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>, editing the table of content file <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>, etc.), check <a class="reference external" href="https://jupyterbook.org/en/stable/content/index.html">the Jupyter Book documentation</a> for more information.</p>
 </div>
 <section id="table-of-contents">
 <h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">#</a></h2>
@@ -409,19 +419,23 @@ For more advanced usage of Jupyter Book, such as this special content block, che
 <li><p><a class="reference external" href="#s2">Step 3: Create a new repository</a></p></li>
 <li><p><a class="reference external" href="#s4">Step 4: Build the book locally</a></p></li>
 <li><p><a class="reference external" href="#s5">Step 5: Deploy the book online</a></p></li>
+<li><p><a class="reference external" href="#ts">Troubleshooting</a></p></li>
 </ul>
 </section>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
 <p><a name="pre"></a></p>
 <p>We will use <a class="reference external" href="https://pages.github.com">GitHub Pages</a> to deploy your compiled book, which means that you need to <a class="reference external" href="https://github.com/signup">register a GitHub account</a>.</p>
+<p>GitHub has a new policy that you can no longer use your account password to push file changes.
+You must <a class="reference external" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">create a personal access token</a> and use the token when pushing changes to a GitHub repository. Please make sure that you have the personal access token ready.</p>
 <p>We assume that you have installed the environment that can edit and run Jupyter Notebook files.
 If you have not done so, check the <a class="reference external" href="https://jupyter.org">Jupyter website</a> for how to install the user interface and environment.</p>
 <p>You need a terminal (e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> or <a class="reference external" href="https://en.wikipedia.org/wiki/Z_shell">Zsh</a>) to work with Jupyter Book.
 If you are on Windows, install <a class="reference external" href="https://git-scm.com/">the git tool</a>, which should come with a terminal.
 If you are on Mac or Linux, the git tool is already installed, so you can just open the terminal and start typing commands.</p>
-<p>We expect that you have some basic understanding of using <code class="docutils literal notranslate"><span class="pre">git</span></code> for version control.
-If you are new to this idea, check <a class="reference external" href="https://github.com/git-guides">the git guide</a>.</p>
+<p>You will need to use <code class="docutils literal notranslate"><span class="pre">git</span></code> to work with the GitHub Pages, which requires some basic understanding of using <code class="docutils literal notranslate"><span class="pre">git</span></code>.
+If you are new to this idea, check <a class="reference external" href="https://github.com/git-guides">the git guide</a>.
+Also, here is <a class="reference external" href="https://www.youtube.com/watch?v=USjZcfj8yxE">a 15-minute Git tutorial video</a> that covers what you need for this course.</p>
 </section>
 <section id="step-1-install-conda">
 <h2>Step 1: Install conda<a class="headerlink" href="#step-1-install-conda" title="Permalink to this headline">#</a></h2>
@@ -574,6 +588,14 @@ You can check the “Action” page to check the status.
 For example, here is the <a class="reference external" href="https://github.com/yenchiah/jupyter-book-template/actions">action page for our tutorial repository</a>.</p>
 <p>You can now publish this URL online, such as on your personal website.
 More information about how to publish your book can be found on <a class="reference external" href="https://jupyterbook.org/en/stable/start/publish.html">this documentation</a>.</p>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h2>
+<p><a name="ts"></a></p>
+<p>Q1: I get errors when running the <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span></code> command. What should I do?</p>
+<ul class="simple">
+<li><p>It is possible that your packages in the conda environment are too old. Try upgrading your conda environment and also the Python packages in the environment.</p></li>
+</ul>
 </section>
 <div class="toctree-wrapper compound">
 </div>
