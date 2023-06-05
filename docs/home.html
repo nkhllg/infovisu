@@ -402,7 +402,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="jupyter-book-tutorial">
 <h1>Jupyter Book Tutorial<a class="headerlink" href="#jupyter-book-tutorial" title="Permalink to this headline">#</a></h1>
-<p>(Last updated: June 4, 2023)</p>
+<p>(Last updated: June 5, 2023)</p>
 <p>In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
 This page is written in markdown, which also serves as an example.</p>
 <div class="admonition note">
@@ -478,8 +478,13 @@ conda install <span class="nv">python</span><span class="o">=</span><span class=
 which pip <span class="c1"># make sure this is the pip inside the jupyterbook environment, which means the path should contains the &quot;jupyterbook&quot; string</span>
 </pre></div>
 </div>
-<p>Finally, install the packages that are needed for building and compiling notebooks.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -U jupyter-book
+<p>Finally, install the packages that are needed for building and compiling notebooks.
+Notice that for Windows users, you may encounter errors later when building the book if using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> to install Jupyter Book, so please use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> instead.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Mac and Linux users</span>
+pip install -U jupyter-book
+
+<span class="c1"># For Windows users</span>
+conda install -c conda-forge jupyter-book
 </pre></div>
 </div>
 <p>Check if Jupyter Book is installed correctly using the following command.
@@ -511,8 +516,9 @@ Again, remember to use the correct repository name (i.e., replacing <code class=
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cp -r jupyter-book-template/* <span class="o">[</span>my-repository-name<span class="o">]</span>/
 </pre></div>
 </div>
-<p>Finally, delete the old <code class="docutils literal notranslate"><span class="pre">git</span></code> history from the template that you just copied since we do not need them.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rm -rf .git
+<p>Finally, go into your folder and delete the old <code class="docutils literal notranslate"><span class="pre">git</span></code> history from the template that you just copied since we do not need them.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="o">[</span>my-repository-name<span class="o">]</span>
+rm -rf .git
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -544,14 +550,14 @@ Sometimes you may want to build the entire book from scratch, and you can use th
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>jupyter-book build --all .
 </pre></div>
 </div>
-<p>After building the book, all the html files in the “_build/html/” directory will be updated.
+<p>After building the book, all the html files in the <code class="docutils literal notranslate"><span class="pre">_build/html/</span></code> directory will be updated.
 You can then use your browser to open the files locally on your machine to view the compiled notebooks and markdown files.
 You can also install a <a class="reference external" href="https://httpd.apache.org/">local Apache HTTP Server</a> to view the files since the html files are sometimes incorrectly displayed if opened using a browser.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Notice that every time you add new files or update existing files, you need to re-build the book using the commands provided above.</p>
 </div>
-<p>We also already set up the configuration file (<code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>) and table of content file (<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>) for you.
+<p>We also already set up the configuration file <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> and the table of content file <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> for you.
 For more information about how to edit them, check <a class="reference external" href="https://jupyterbook.org/en/stable/start/create.html">this documentation</a>.</p>
 </section>
 <section id="step-5-deploy-the-book-online">
@@ -570,7 +576,11 @@ git push
 <p>The above commands push your code to the main branch.
 However, we need to use the <a class="reference external" href="https://github.com/c-w/ghp-import">ghp-import</a> package to push your website code to a separate branch.
 To use the package, run the following to install it:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pip install -U ghp-import
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Mac and Linux users</span>
+pip install -U ghp-import
+
+<span class="c1"># For Windows users</span>
+conda install -c conda-forge ghp-import
 </pre></div>
 </div>
 <p>Then, run the following command to push your html files to the <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> branch.</p>
@@ -595,6 +605,12 @@ More information about how to publish your book can be found on <a class="refere
 <p>Q1: I get errors when running the <code class="docutils literal notranslate"><span class="pre">jupyter-book</span> <span class="pre">build</span></code> command. What should I do?</p>
 <ul class="simple">
 <li><p>It is possible that your packages in the conda environment are too old. Try upgrading your conda environment and also the Python packages in the environment.</p></li>
+<li><p>If there are still errors, create a new conda environment and use a different way to install Jupyter Book. For example, if you used <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>, try using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> instead.</p></li>
+</ul>
+<p>Q2: I get errors after running the <code class="docutils literal notranslate"><span class="pre">ghp-import</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> commands after entering my personal access token. What should I do?</p>
+<ul class="simple">
+<li><p>Check if your personal access token has expired on GitHub. You can create a new token and give it a longer expiration time.</p></li>
+<li><p>Try to create a new personal access token on GitHub and give it the permissions/scopes of editing repositories. The token that you created may have the wrong permissions/scopes, so you cannot push changes to GitHub.</p></li>
 </ul>
 </section>
 <div class="toctree-wrapper compound">
