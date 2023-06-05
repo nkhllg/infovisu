@@ -1,6 +1,6 @@
 # Jupyter Book Tutorial
 
-(Last updated: June 4, 2023)
+(Last updated: June 5, 2023)
 
 In this tutorial, we will teach you how to create a Jupyter book and deploy it online.
 This page is written in markdown, which also serves as an example.
@@ -82,8 +82,13 @@ conda install pip
 which pip # make sure this is the pip inside the jupyterbook environment, which means the path should contains the "jupyterbook" string
 ```
 Finally, install the packages that are needed for building and compiling notebooks.
+Notice that for Windows users, you may encounter errors later when building the book if using `pip install` to install Jupyter Book, so please use `conda install` instead.
 ```sh
+# For Mac and Linux users
 pip install -U jupyter-book
+
+# For Windows users
+conda install -c conda-forge jupyter-book
 ```
 Check if Jupyter Book is installed correctly using the following command.
 Having no error messages means that Jupyter Book is installed correctly.
@@ -116,8 +121,9 @@ Again, remember to use the correct repository name (i.e., replacing `[my-reposit
 ```sh
 cp -r jupyter-book-template/* [my-repository-name]/
 ```
-Finally, delete the old `git` history from the template that you just copied since we do not need them.
+Finally, go into your folder and delete the old `git` history from the template that you just copied since we do not need them.
 ```sh
+cd [my-repository-name]
 rm -rf .git
 ```
 
@@ -149,7 +155,7 @@ Sometimes you may want to build the entire book from scratch, and you can use th
 ```sh
 jupyter-book build --all .
 ```
-After building the book, all the html files in the "_build/html/" directory will be updated.
+After building the book, all the html files in the `_build/html/` directory will be updated.
 You can then use your browser to open the files locally on your machine to view the compiled notebooks and markdown files.
 You can also install a [local Apache HTTP Server](https://httpd.apache.org/) to view the files since the html files are sometimes incorrectly displayed if opened using a browser.
 
@@ -157,7 +163,7 @@ You can also install a [local Apache HTTP Server](https://httpd.apache.org/) to 
 Notice that every time you add new files or update existing files, you need to re-build the book using the commands provided above.
 :::
 
-We also already set up the configuration file (`_config.yml`) and table of content file (`_toc.yml`) for you.
+We also already set up the configuration file `_config.yml` and the table of content file `_toc.yml` for you.
 For more information about how to edit them, check [this documentation](https://jupyterbook.org/en/stable/start/create.html).
 
 ## Step 5: Deploy the book online
@@ -178,7 +184,11 @@ The above commands push your code to the main branch.
 However, we need to use the [ghp-import](https://github.com/c-w/ghp-import) package to push your website code to a separate branch.
 To use the package, run the following to install it:
 ```sh
+# For Mac and Linux users
 pip install -U ghp-import
+
+# For Windows users
+conda install -c conda-forge ghp-import
 ```
 Then, run the following command to push your html files to the `gh-pages` branch.
 ```sh
@@ -204,3 +214,8 @@ More information about how to publish your book can be found on [this documentat
 
 Q1: I get errors when running the `jupyter-book build` command. What should I do?
 - It is possible that your packages in the conda environment are too old. Try upgrading your conda environment and also the Python packages in the environment.
+- If there are still errors, create a new conda environment and use a different way to install Jupyter Book. For example, if you used `pip install`, try using `conda install` instead.
+
+Q2: I get errors after running the `ghp-import` or `git push` commands after entering my personal access token. What should I do?
+- Check if your personal access token has expired on GitHub. You can create a new token and give it a longer expiration time.
+- Try to create a new personal access token on GitHub and give it the permissions/scopes of editing repositories. The token that you created may have the wrong permissions/scopes, so you cannot push changes to GitHub.
