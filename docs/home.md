@@ -119,12 +119,15 @@ Make sure that your repository is public, and do not add a README file.
 You also do not need to add the `.gitignore` file and `license`.
 
 Then, clone your newly created (and currently empty) repository to your local machine.
-Remember to use the proper account (i.e., replacing `[my-account-name]`) and repository name (i.e., replacing `[my-repository-name]`) in the URL that you want to clone.
+Remember to use the proper account user name (i.e., replacing `[my-account-name]`) and repository name (i.e., replacing `[my-repository-name]`) in the URL that you want to clone.
 ```sh
 git clone https://github.com/[my-account-name]/[my-repository-name]
+
+# Below is one example of the URL
+# https://github.com/abc/example-repo
 ```
 Now, copy all the template files and folders from the tutorial repository to this newly created repository.
-Again, remember to use the correct repository name (i.e., replacing `[my-repository-name]`).
+Again, remember to use the correct repository name (i.e., replacing `[my-repository-name]` to your repository name).
 ```sh
 cp -r jupyter-book-template/* [my-repository-name]/
 ```
@@ -174,12 +177,18 @@ For more information about how to edit them, check [this documentation](https://
 Now, we have the compiled website files ready, and we can move on to deploy the website.
 We will do this using the [GitHub Pages](https://pages.github.com).
 
-First, push your code and files on your local machine to your remote repository.
+First, go to the repository folder on your computer and use `git add` to indicate that you want to push these files to the remote GitHub repository.
 Replace `[my-repository-name]` with your repository name.
 ```sh
 cd [my-repository-name]
 git add .
+```
+Then, commit the changes that you want to make using a message.
+```sh
 git commit -m "Add my first book!"
+```
+Next, push your code and files on your local machine to your remote repository.
+```sh
 git push
 ```
 The above commands push your code to the main branch.
