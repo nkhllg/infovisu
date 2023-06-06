@@ -107,6 +107,13 @@ git clone https://github.com/yenchiah/jupyter-book-template
 The cloned tutorial repository has the template files that you need to build your website.
 We are only using the template for reference.
 
+Next, go into the template folder and delete the old `git` history from the template since we do not need them.
+```sh
+cd jupyter-book-template
+rm -rf .git
+cd ..
+```
+
 To have your repository that can host your website and code, [create a new repository](https://github.com/new) and work from there.
 Make sure that your repository is public, and do not add a README file.
 You also do not need to add the `.gitignore` file and `license`.
@@ -120,11 +127,6 @@ Now, copy all the template files and folders from the tutorial repository to thi
 Again, remember to use the correct repository name (i.e., replacing `[my-repository-name]`).
 ```sh
 cp -r jupyter-book-template/* [my-repository-name]/
-```
-Finally, go into your folder and delete the old `git` history from the template that you just copied since we do not need them.
-```sh
-cd [my-repository-name]
-rm -rf .git
 ```
 
 :::{warning}
